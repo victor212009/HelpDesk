@@ -1,0 +1,65 @@
+﻿@model IEnumerable<HelpDesk.UI.Models.ModeloCasos>
+
+<h2>Registrados</h2>
+<p>
+    @Html.ActionLink("Agregar nuevo caso", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            Nombre Contacto
+        </th>
+        <th>
+            Telefono Contacto
+        </th>
+        <th>
+            Fecha Creación
+        </th>
+        <th>
+            Nivel de criticidad
+        </th>
+        <th>
+            Dias sin atender
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreContacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoContacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiasSinAtenderElCaso )
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id }) |
+                @Html.ActionLink("Poner en proceso", "PonerEnProceso", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

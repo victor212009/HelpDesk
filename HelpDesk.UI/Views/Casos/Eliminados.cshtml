@@ -1,0 +1,60 @@
+﻿@model IEnumerable<HelpDesk.Model.Casos>
+
+@{
+    ViewBag.Title = "Eliminados";
+}
+
+<h2>Eliminados</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            Nombre Contacto
+        </th>
+        <th>
+            Telefono Contacto
+        </th>
+        <th>
+            Fecha Creación
+        </th>
+        <th>
+            Nivel de criticidad
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreContacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoContacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nivel)
+            </td>
+            <td>
+                @Html.ActionLink("Reactivar", "Reactivar", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+

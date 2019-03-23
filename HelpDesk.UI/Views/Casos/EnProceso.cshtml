@@ -1,0 +1,61 @@
+﻿@model IEnumerable<HelpDesk.UI.Models.ModeloCasos>
+
+<h2>En proceso</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nivel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreContacto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefonoContacto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Identificacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nivel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreContacto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoContacto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Identificacion)
+        </td>
+        <td>
+            @Html.ActionLink("Rechazar", "Rechazar", new { id=item.Id }) |
+            @Html.ActionLink("Terminar", "Terminar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
